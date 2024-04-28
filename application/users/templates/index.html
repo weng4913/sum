@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>Hello!</p>
+    <div id="logged-in">
+        <p>You are logged in. <span id="email"></span></p>
+        <button id="account">Account</button>
+        <button id="logout">Logout</button>
+    </div>
+    <div id="logged-out">
+        <p>You are not logged in.</p>
+        <button id="register">Register</button>
+        <button id="login">Login</button>
+    </div>
+{% endblock%}
+{% block script %}
+    {% load static %}
+    <script type="text/javascript" src="{% static 'js/propelauth.js' %}"></script>
+{% endblock %}
