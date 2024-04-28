@@ -1,6 +1,6 @@
 # sum
 
-# ---WORK IN PROGRESS---
+# ------WORK IN PROGRESS (HACKDAVIS2024)------
 ## Summary
 A web application to give homeless individuals a unique identifier to fast-track getting resources and facilitate case worker communication, and for community organizations to track supply inventory
 ## Inspiration
