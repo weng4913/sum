@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        let pageNumber = 1;
+    </script>
+{% endblock %}
+{% block content %}
+    <h1>Intake</h1>
+    <form id="intake" action="" method="post">
+        <div id="intake-questions">
+            {% include "templates/intake-questions.html" %}
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
+{% endblock%}
+{% block script %}
+    {% load static %}
+    <script type="module" src="{% static 'js/intake.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% if page == 1 %}
+<fieldset>
+    <legend>Please select your role:</legend>
+    <div>
+        <input type="radio" id="caseworker" name="role" value="caseworker" />
+        <label for="caseworker">Case Worker</label>
+        <input type="radio" id="volunteer" name="role" value="volunteer" />
+        <label for="volunteer">Volunteer</label>
+        <input type="radio" id="client" name="role" value="client" />
+        <label for="client">Client</label>
+    </div>
+</fieldset>
+{% else %}
+<fieldset>
+    <legend>Please select your role:</legend>
+    <div>
+        <input type="radio" id="caseworker" name="role" value="caseworker" />
+        <label for="caseworker">Case Worker</label>
+        <input type="radio" id="volunteer" name="role" value="volunteer" />
+        <label for="volunteer">Volunteer</label>
+        <input type="radio" id="client" name="role" value="client" />
+        <label for="client">Client</label>
+    </div>
+</fieldset>
+{% endif %}

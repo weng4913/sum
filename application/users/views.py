@@ -1,8 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from django.template.loader import render_to_string
 from propelauth_py import init_base_auth, UnauthorizedException
-from propelauth_django_rest_framework import init_auth
-from rest_framework.decorators import api_view, permission_classes
 
 # Create your views here.
 
@@ -30,6 +29,17 @@ def profile(request):
         'profile_email': profile_email
     }
     return render(request, 'profile.html', context=context)
+
+def intake(request):
+    context = {}
+    fetch = request.headers.get('x-requested-with') == 'XMLHttpRequest'
+    if fetch and request.method == 'POST':
+        page = request.headers.get('page-number')
+        context['page'] = page
+        html = render_to_string(template_name='templates/intake-questions.html', context=context)
+        data_dict = {'html-from-view': html}
+        return JsonResponse(data=data_dict, safe=False)
+    return render(request, 'intake.html', context=context)
 
 def donate(request):
     return render(request, 'donate.html')
