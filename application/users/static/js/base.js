@@ -3,12 +3,12 @@ export const authClient = PropelAuth.createClient({
     enableBackgroundTokenRefresh: true
 });
 
-let whoAmI = async function (accessToken) {
-    let response = await fetch("/users/whoami/", {
+let getUser = async function (userID) {
+    let response = await fetch("/users/profile/?" + new URLSearchParams({ q: userID }).toString(), {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${accessToken}`
+            "X-Requested-With": "XMLHttpRequest"
         }
     });
     let result = await response.json();
@@ -19,7 +19,7 @@ let whoAmI = async function (accessToken) {
 const authInfo = await authClient.getAuthenticationInfoOrNull(true);
 console.log(authInfo);
 if (authInfo) {
-    console.log(await whoAmI(authInfo.accessToken));
+    console.log(await getUser(authInfo.user.userID));
 } else {
     console.log("User is not logged in");
 }

@@ -12,9 +12,11 @@ def index(request):
     return render(request, 'index.html')
 
 def profile(request):
-    user_id = ''
-    user_info = auth.fetch_user_metadata_by_user_id(user_id)
+    fetch = request.headers.get('x-requested-with') == 'XMLHttpRequest'
+    if fetch and request.method == 'GET':
+        user_id = request.GET.get('q')
     try:
+        user_info = auth.fetch_user_metadata_by_user_id(user_id)
         profile_photo = user_info['picture_url']
         profile_name = user_info['first_name'] + ' ' + user_info['last_name']
         profile_email = user_info['email']
@@ -22,7 +24,7 @@ def profile(request):
         profile_photo = ''
         profile_name = ''
         profile_email = ''
-    
+        
     context={
         'profile_photo': profile_photo,
         'profile_name': profile_name,
