@@ -1,19 +1,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <p>Hello!</p>
-    <div id="logged-in">
-        <p>You are logged in. <span id="email"></span></p>
-        <button id="account">Account</button>
-        <button id="logout">Logout</button>
-    </div>
-    <div id="logged-out">
-        <p>You are not logged in.</p>
-        <button id="register">Register</button>
-        <button id="login">Login</button>
-    </div>
+    <h1>Title</h1>
+    <button id="login">Log In/Register</button>
+    <form action="{% url 'donate' %}">
+        <input type="submit" value="Donate" />
+    </form>
 {% endblock%}
 {% block script %}
     {% load static %}
-    <script type="text/javascript" src="{% static 'js/propelauth.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
 {% endblock %}

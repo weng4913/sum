@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <img src="{{ profile_photo }}">
+    <h2>{{ profile_name }}</h2>
+    <h3>{{ profile_email }}</h3>
+    {% load qr_code %}
+    <img src="{{ profile_qr }}">
+    <button id="logout">Logout</button>
+    <button id="account">Account</button>
+{% endblock%}
+{% block script %}
+    {% load static %}
+    <script type="text/javascript" src="{% static 'js/profile.js' %}"></script>
+{% endblock %}

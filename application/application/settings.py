@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'inventory.apps.InventoryConfig',
     'users.apps.UsersConfig',
-    'rest_framework'
+    'rest_framework',
+    'qr_code'
 ]
 
 MIDDLEWARE = [

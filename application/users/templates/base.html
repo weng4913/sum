@@ -10,7 +10,12 @@
         <script src="https://www.unpkg.com/@propelauth/javascript@2.0.11/dist/javascript.min.js" integrity="sha384-FENNH2f7QuQvkZJBL7jebLr0OtYKgTA2iq+C5g3VXXX7SBwWmeMMoc+pBBtcn76G" crossorigin="anonymous"></script>
         {% load static %}
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-        {% block javascript %}{% endblock %}
+        <script type="text/javascript">
+            const authClient = PropelAuth.createClient({
+                authUrl: "https://566408065.propelauthtest.com:",
+                enableBackgroundTokenRefresh: true
+            });
+        </script>
     </head>
     <body>
         <div class="container-fluid">

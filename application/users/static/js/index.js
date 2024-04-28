@@ -1,0 +1,1 @@
+document.getElementById("login").onclick = authClient.redirectToLoginPage;
